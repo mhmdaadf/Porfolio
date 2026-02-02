@@ -1,0 +1,106 @@
+/* About Section */
+.about {
+  width: 100%;
+  padding: 6rem 4rem;
+  background-color: #D7D7D7;
+}
+
+.about-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.section-title {
+  display: inline-block;
+  border: 2px solid #000;
+  padding: 0.8rem 2rem;
+  font-size: 0.9rem;
+  letter-spacing: 3px;
+  font-weight: 600;
+  margin-bottom: 3rem;
+}
+
+.about-intro {
+  text-align: center;
+  max-width: 700px;
+  margin-bottom: 2rem;
+  color: #555;
+  line-height: 1.8;
+}
+
+.explore-btn {
+  background-color: transparent;
+  border: 1px solid #000;
+  border-bottom: 0;
+  border-top: 0;
+  padding: 0.5rem 1.5rem;
+  cursor: pointer;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  margin-bottom: 3rem;
+  transition: all 0.3s ease;
+}
+
+.explore-btn:hover {
+  background-color: #000;
+  color: #fff;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 3rem;
+  color: #999;
+  font-size: 0.8rem;
+}
+
+.divider span {
+  width: 50px;
+  height: 1px;
+  background-color: #999;
+}
+
+/* Services Grid */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3rem;
+  width: 100%;
+  max-width: 900px;
+  margin-bottom: 3rem;
+}
+
+.service-item {
+  padding: 1rem 0;
+}
+
+.service-item h3 {
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+
+.service-item p {
+  font-size: 0.85rem;
+  color: #666;
+  line-height: 1.7;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .about {
+    padding: 4rem 2rem;
+  }
+  
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
