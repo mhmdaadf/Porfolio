@@ -30,21 +30,6 @@
   margin-bottom: 1.5rem;
 }
 
-.contact-divider {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  margin-bottom: 2rem;
-  color: #999;
-  font-size: 0.8rem;
-}
-
-.contact-divider span {
-  width: 50px;
-  height: 1px;
-  background-color: #999;
-}
-
 /* Contact Form */
 .contact-form {
   width: 100%;

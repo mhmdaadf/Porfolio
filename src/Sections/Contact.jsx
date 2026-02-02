@@ -1,53 +1,23 @@
-import React, { useState } from 'react';
+import React from 'react';
 import '../Styles/Contact.css';
 
 function Contact() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    message: ''
-  });
-
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Handle form submission
-    console.log('Form submitted:', formData);
-    alert('Thank you for your message! I will get back to you soon.');
-    setFormData({ name: '', email: '', phone: '', message: '' });
-  };
-
   return (
     <section className='contact' id='contact'>
       <div className='contact-container'>
         <h2 className='contact-title'>CONTACT</h2>
         
         <p className='contact-intro'>
-          Hello! If you want to contact me about anything, like offering me a cool job, 
-          or just want to say hi, feel free to fill out the form below or reach me by email.
+          Have a project in mind or want to collaborate? Feel free to reach out! 
+          I'm always open to discussing new opportunities, creative ideas, or ways we can work together.
         </p>
         
-        <div className='contact-divider'>
-          <span></span>
-          <p>WHAT</p>
-          <span></span>
-        </div>
         
-        <form className='contact-form' onSubmit={handleSubmit}>
+        <form className='contact-form' onSubmit={(e) => { e.preventDefault(); alert('Thank you for your message! I will get back to you soon.'); }}>
           <div className='form-group'>
             <input 
               type='text' 
-              name='name'
-              placeholder='Enter your name'
-              value={formData.name}
-              onChange={handleChange}
+              placeholder='ENTER YOUR NAME*'
               required
             />
           </div>
@@ -55,10 +25,7 @@ function Contact() {
           <div className='form-group'>
             <input 
               type='email' 
-              name='email'
-              placeholder='Enter your email'
-              value={formData.email}
-              onChange={handleChange}
+              placeholder='ENTER YOUR EMAIL*'
               required
             />
           </div>
@@ -66,19 +33,13 @@ function Contact() {
           <div className='form-group'>
             <input 
               type='tel' 
-              name='phone'
-              placeholder='Phone number'
-              value={formData.phone}
-              onChange={handleChange}
+              placeholder='PHONE NUMBER'
             />
           </div>
           
           <div className='form-group'>
             <textarea 
-              name='message'
-              placeholder='Your message'
-              value={formData.message}
-              onChange={handleChange}
+              placeholder='YOUR MESSAGE*'
               required
             ></textarea>
           </div>
