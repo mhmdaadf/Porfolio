@@ -9,7 +9,7 @@ function Hero() {
         <div className="hero-content">
           <p className="hero-greeting">Hi, I am</p>
           <h1 className="hero-name">Mohammad Alkhatib</h1>
-          <p className="hero-title">Front-end Developer / UI Designer</p>
+          <p className="hero-title">FullStack Developer</p>
           
           <div className="hero-buttons">
             <a href="https://github.com" target="_blank" >
@@ -35,9 +35,9 @@ function Hero() {
         </div>
       </section>
 
-      <section className="it-berries">
-        <h2 className="it-berries-title">HIRE ME</h2>
-        <p className="it-berries-text">
+      <section className="hire-me">
+        <h2 className="hire-me-title">HIRE ME</h2>
+        <p className="hire-me-text">
           My name is Mohammad Alkhatib. I'm a developer with over 2 years experience in the industry working with various 
           technologies. Currently focused on front-end development, building responsive and accessible web applications. 
           Passionate about creating beautiful user interfaces and great user experiences. Always eager to learn new 

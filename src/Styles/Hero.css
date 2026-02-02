@@ -121,22 +121,22 @@
   object-fit: contain;
 }
 
-/* IT Berries Section */
-.it-berries {
+/* Hire Me Section */
+.hire-me {
   background-color: #1a1a1a;
   color: #fff;
   padding: 4rem;
   position: relative;
 }
 
-.it-berries-title {
+.hire-me-title {
   font-size: 1.5rem;
   font-weight: bold;
   letter-spacing: 2px;
   margin-bottom: 1.5rem;
 }
 
-.it-berries-text {
+.hire-me-text {
   font-size: 0.9rem;
   line-height: 1.8;
   color: #aaa;
@@ -256,7 +256,7 @@
     bottom: 6rem;
   }
   
-  .it-berries {
+  .hire-me {
     padding: 2rem;
   }
 }

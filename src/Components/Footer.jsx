@@ -38,7 +38,7 @@ function Footer() {
           </a>
         </div>
         
-        <p className='copyright'>©2026 Mohammad Alkhatib. All Rights Reserved</p>
+        <p className='copyright'>&copy; 2026 Mohammad Alkhatib. All Rights Reserved</p>
       </div>
     </footer>
   );

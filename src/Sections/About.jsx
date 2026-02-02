@@ -15,14 +15,14 @@ function About() {
         
         <button className='explore-btn'>EXPLORE</button>
         
-        <div className='divider'>
+        <div className='what-i-do'>
           <span></span>
           <p>WHAT I DO</p>
           <span></span>
         </div>
         
-        <div className='services-grid'>
-          <div className='service-item'>
+        <div className='about-grid'>
+          <div className='about-item'>
             <h3>Design</h3>
             <p>
               Creating modern and intuitive user interfaces with attention to detail. 
@@ -31,7 +31,7 @@ function About() {
             </p>
           </div>
           
-          <div className='service-item'>
+          <div className='about-item'>
             <h3>Development</h3>
             <p>
               Building responsive websites and web applications using modern 
@@ -40,7 +40,7 @@ function About() {
             </p>
           </div>
           
-          <div className='service-item'>
+          <div className='about-item'>
             <h3>Maintenance</h3>
             <p>
               Providing ongoing support and maintenance to keep websites 

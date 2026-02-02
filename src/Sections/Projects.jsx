@@ -24,7 +24,7 @@ function Projects() {
     <section className='projects' id='projects'>
       <div className='projects-container'>
         <div className='projects-header'>
-          <button className='portfolio-btn'>PROJECTS</button>
+          <button className='project-btn'>PROJECTS</button>
         </div>
         <div className='projects-grid'>
           {projects.map(project => (

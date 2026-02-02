@@ -1,4 +1,4 @@
-/* Projects/Portfolio Section */
+/* Projects/project Section */
 .projects {
   width: 100%;
   padding: 4rem 0;
@@ -31,7 +31,7 @@
   margin-bottom: 3rem;
 }
 
-.portfolio-btn {
+.project-btn {
   display: inline-block;
   border: 2px solid #fff;
   border-bottom: 0;
@@ -46,7 +46,7 @@
   transition: all 0.3s ease;
 }
 
-.portfolio-btn:hover {
+.project-btn:hover {
   background-color: #fff;
   color: #000;
 }

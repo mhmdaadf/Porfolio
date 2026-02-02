@@ -6,7 +6,6 @@ function Skills() {
     <section className='skills' id='skills'>
       <div className='skills-container'>
         <button className='skills-btn'>SKILLS</button>
-        
         <div className='skills-category'>
           <h3>Using Now:</h3>
           <div className='skills-grid'>
@@ -28,23 +27,18 @@ function Skills() {
               </div>
               <span>JavaScript</span>
             </div>
-            
             <div className='skill-item'>
               <div className='skill-icon'>
                 <img src="src\assets\react.png" alt="" />
               </div>
               <span>React</span>
             </div>
-            
-            
-            
             <div className='skill-item'>
               <div className='skill-icon'>
                 <img src="src\assets\git.png" alt="" />
               </div>
               <span>Git</span>
             </div>
-            
             <div className='skill-item'>
               <div className='skill-icon'>
                 <img src="src\assets\figma.png" alt="" />
@@ -53,7 +47,6 @@ function Skills() {
             </div>
           </div>
         </div>
-        
         <div className='skills-category'>
           <h3>Learning:</h3>
           <div className='skills-grid'>
@@ -63,14 +56,12 @@ function Skills() {
               </div>
               <span>Node.js</span>
             </div>
-            
             <div className='skill-item'>
               <div className='skill-icon'>
                 <img src="src\assets\ts.png" alt="" />
               </div>
               <span>TypeScript</span>
             </div>
-            
             <div className='skill-item'>
               <div className='skill-icon'>
                 <img src="src\assets\sql.png" alt="" />
