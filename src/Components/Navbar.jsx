@@ -1,5 +1,6 @@
 import '../Styles/Navbar.css';
 import React, { useState } from "react";
+import navLogo from '../assets/image.png';
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -15,7 +16,7 @@ function Navbar() {
   return (
     <>
       <nav>
-        <img src="src\assets\image.png" alt="Logo" className="nav-logo" />
+        <img src={navLogo} alt="Logo" className="nav-logo" />
         
         <div className="nav-links">
           <button className="navbar-btn" onClick={() => scrollToSection('about')}>

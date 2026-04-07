@@ -1,5 +1,8 @@
 import '../Styles/Hero.css';
 import React from 'react';
+import githubIcon from '../assets/github.png';
+import linkedinIcon from '../assets/linkedin.png';
+import profileImage from '../assets/ChatGPT_Image_Feb_1__2026__04_57_19_PM-removebg-preview.png';
 
 function Hero() {
   return (
@@ -14,12 +17,12 @@ function Hero() {
           <div className="hero-buttons">
             <a href="https://github.com/mhmdaadf" target="_blank" >
               <button className="hero-btn" aria-label="GitHub">
-                <img src="src\assets\github.png" alt="" />
+                <img src={githubIcon} alt="" />
               </button>
             </a>
             <a href="https://linkedin.com" target="_blank" >
               <button className="hero-btn" aria-label="LinkedIn">
-                <img src="src\assets\linkedin.png" alt="" />
+                <img src={linkedinIcon} alt="" />
               </button>
             </a>
             <a href="https://wa.me/96181804493" target="_blank" >
@@ -33,7 +36,7 @@ function Hero() {
         </div>
         
         <div className="hero-image-container">
-          <img src="src\assets\ChatGPT_Image_Feb_1__2026__04_57_19_PM-removebg-preview.png" alt="Mohammad Alkhatib" className="portfolio-img" />
+          <img src={profileImage} alt="Mohammad Alkhatib" className="portfolio-img" />
         </div>
       </section>
 

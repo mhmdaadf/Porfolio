@@ -1,5 +1,14 @@
 import React from 'react';
 import '../Styles/Skills.css';
+import htmlIcon from '../assets/html.png';
+import cssIcon from '../assets/css.png';
+import jsIcon from '../assets/js.png';
+import reactIcon from '../assets/react.png';
+import gitIcon from '../assets/git.png';
+import figmaIcon from '../assets/figma.png';
+import nodeIcon from '../assets/node.png';
+import tsIcon from '../assets/ts.png';
+import sqlIcon from '../assets/sql.png';
 
 function Skills() {
   return (
@@ -11,37 +20,37 @@ function Skills() {
           <div className='skills-grid'>
             <div className='skill-item'>
               <div className='skill-icon'>
-               <img src="src\assets\html.png" alt="" />
+               <img src={htmlIcon} alt="" />
               </div>
               <span>HTML</span>
             </div>
             <div className='skill-item'>
               <div className='skill-icon'>
-                <img src="src\assets\css.png" alt="" />
+                <img src={cssIcon} alt="" />
               </div>
               <span>CSS</span>
             </div>
             <div className='skill-item'>
               <div className='skill-icon'>
-                <img src="src\assets\js.png" alt="" />
+                <img src={jsIcon} alt="" />
               </div>
               <span>JavaScript</span>
             </div>
             <div className='skill-item'>
               <div className='skill-icon'>
-                <img src="src\assets\react.png" alt="" />
+                <img src={reactIcon} alt="" />
               </div>
               <span>React</span>
             </div>
             <div className='skill-item'>
               <div className='skill-icon'>
-                <img src="src\assets\git.png" alt="" />
+                <img src={gitIcon} alt="" />
               </div>
               <span>Git</span>
             </div>
             <div className='skill-item'>
               <div className='skill-icon'>
-                <img src="src\assets\figma.png" alt="" />
+                <img src={figmaIcon} alt="" />
               </div>
               <span>Figma</span>
             </div>
@@ -52,19 +61,19 @@ function Skills() {
           <div className='skills-grid'>
             <div className='skill-item'>
               <div className='skill-icon'>
-                <img src="src\assets\node.png" alt="" />
+                <img src={nodeIcon} alt="" />
               </div>
               <span>Node.js</span>
             </div>
             <div className='skill-item'>
               <div className='skill-icon'>
-                <img src="src\assets\ts.png" alt="" />
+                <img src={tsIcon} alt="" />
               </div>
               <span>TypeScript</span>
             </div>
             <div className='skill-item'>
               <div className='skill-icon'>
-                <img src="src\assets\sql.png" alt="" />
+                <img src={sqlIcon} alt="" />
               </div>
               <span>MYSQL</span>
             </div>

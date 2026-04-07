@@ -1,5 +1,6 @@
 import React from 'react';
 import '../Styles/Footer.css';
+import backToTopIcon from '../assets/backtotop.png';
 
 function Footer() {
   const scrollToTop = () => {
@@ -10,7 +11,7 @@ function Footer() {
     <footer className='footer'>
       <div className='footer-container'>
         <button className='back-to-top' onClick={scrollToTop}>
-          <img src="src\assets\backtotop.png" alt="" />
+          <img src={backToTopIcon} alt="" />
           <span>Back to Top</span>
         </button>
 
