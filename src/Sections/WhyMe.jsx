@@ -1,9 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import SectionTag from '../Components/SectionTag.jsx';
+import Card from '../Components/Card.jsx';
 import '../Styles/WhyMe.css';
 import MotionSection from '../motion/MotionSection.jsx';
-import { cardHover, revealItem, standardTransition, staggerContainer } from '../motion/variants.js';
+import { revealItem, staggerContainer } from '../animations/variants.js';
 
 const points = [
   {
@@ -37,15 +38,12 @@ function WhyMe() {
 
       <motion.div className='why-me-grid' variants={staggerContainer}>
           {points.map((point) => (
-            <motion.article
+            <Card
               key={point.title}
-              variants={revealItem}
-              whileHover={cardHover}
-              transition={standardTransition}
             >
               <h3>{point.title}</h3>
               <p>{point.text}</p>
-            </motion.article>
+            </Card>
           ))}
       </motion.div>
     </MotionSection>

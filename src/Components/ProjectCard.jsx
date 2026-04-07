@@ -1,15 +1,13 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { cardHover, revealItem, standardTransition } from '../motion/variants.js';
+import Card from './Card.jsx';
+import { standardTransition } from '../animations/variants.js';
 
 function ProjectCard({ project }) {
   return (
-    <motion.article
+    <Card
       className='project-card'
-      variants={revealItem}
-      whileHover={cardHover}
       whileTap={{ scale: 0.995 }}
-      transition={standardTransition}
     >
       <div className='project-top'>
         <h3>{project.title}</h3>
@@ -34,7 +32,7 @@ function ProjectCard({ project }) {
           Live Demo
         </motion.a>
       </div>
-    </motion.article>
+    </Card>
   );
 }
 

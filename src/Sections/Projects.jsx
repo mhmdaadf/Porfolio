@@ -5,7 +5,7 @@ import SectionTag from '../Components/SectionTag.jsx';
 import ProjectCard from '../Components/ProjectCard.jsx';
 import projects from '../data/projects.js';
 import MotionSection from '../motion/MotionSection.jsx';
-import { revealItem, staggerContainer } from '../motion/variants.js';
+import { revealItem, staggerContainer } from '../animations/variants.js';
 
 function Projects() {
   return (

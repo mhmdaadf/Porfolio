@@ -1,45 +1,46 @@
 import '../Styles/Navbar.css';
 import React, { useEffect, useRef, useState } from "react";
 import { motion } from 'framer-motion';
-import { linkHover, microTransition, mobileMenuVariants, navbarVariants, standardTransition } from '../motion/variants.js';
-import { useNavbarMotion } from '../motion/useNavbarMotion.js';
+import { linkHover, microTransition, mobileMenuVariants, standardTransition } from '../animations/variants.js';
+import useScrollDirection from '../hooks/useScrollDirection.js';
+import { getNavOffset, smoothScrollToId } from '../utils/smoothScrollToId.js';
+
+const NAV_ITEMS = [
+  { label: 'About', id: 'about' },
+  { label: 'Skills', id: 'skills' },
+  { label: 'Projects', id: 'projects' },
+  { label: 'Why Me', id: 'why-me' }
+];
+
+const SECTION_IDS = ['home', ...NAV_ITEMS.map((item) => item.id), 'contact'];
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
   const activeSectionRef = useRef('home');
-  const { isScrolled, isHidden } = useNavbarMotion({ hideOffset: 120, disabled: menuOpen });
+  const navRef = useRef(null);
+  const { isScrolled, isHidden } = useScrollDirection({ hideOffset: 120, disabled: menuOpen });
 
-  const navItems = [
-    { label: 'About', href: '#about' },
-    { label: 'Skills', href: '#skills' },
-    { label: 'Projects', href: '#projects' },
-    { label: 'Why Me', href: '#why-me' }
-  ];
+  const handleNavClick = (event, id) => {
+    event.preventDefault();
+    const scrolled = smoothScrollToId(id, navRef.current);
 
-  const getNavOffset = () => {
-    const nav = document.querySelector('.site-nav');
-    return (nav?.offsetHeight ?? 76) + 12;
-  };
-
-  const scrollToSection = (event, href) => {
-    const target = document.querySelector(href);
-    if (target) {
-      event.preventDefault();
-      const top = target.getBoundingClientRect().top + window.scrollY - getNavOffset();
-      window.scrollTo({ top: Math.max(top, 0), behavior: 'smooth' });
-      const nextSection = href.slice(1);
-      setActiveSection(nextSection);
-      activeSectionRef.current = nextSection;
-      window.history.replaceState(null, '', href);
+    if (scrolled) {
+      setActiveSection(id);
+      activeSectionRef.current = id;
+      window.history.replaceState(null, '', `#${id}`);
     }
+
     setMenuOpen(false);
   };
 
   useEffect(() => {
     const handleScroll = () => {
-      const marker = window.scrollY + getNavOffset() + 20;
-      const sections = Array.from(document.querySelectorAll('header[id], section[id]'));
+      const marker = window.scrollY + getNavOffset(navRef.current) + 20;
+      const sections = SECTION_IDS
+        .map((id) => document.getElementById(id))
+        .filter(Boolean);
+
       let current = 'home';
 
       sections.forEach((section) => {
@@ -59,39 +60,61 @@ function Navbar() {
     };
 
     const syncNavOffset = () => {
-      document.documentElement.style.setProperty('--nav-offset', `${getNavOffset()}px`);
+      document.documentElement.style.setProperty('--nav-offset', `${getNavOffset(navRef.current)}px`);
+    };
+
+    const handleHashChange = () => {
+      const id = window.location.hash.replace('#', '');
+      if (!id) {
+        return;
+      }
+
+      const didScroll = smoothScrollToId(id, navRef.current);
+      if (didScroll) {
+        setActiveSection(id);
+        activeSectionRef.current = id;
+      }
     };
 
     handleScroll();
     syncNavOffset();
+    handleHashChange();
     window.addEventListener('scroll', handleScroll, { passive: true });
     window.addEventListener('resize', syncNavOffset, { passive: true });
+    window.addEventListener('hashchange', handleHashChange);
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('resize', syncNavOffset);
+      window.removeEventListener('hashchange', handleHashChange);
     };
   }, []);
 
   return (
     <>
       <motion.nav
-        className={`site-nav ${isScrolled ? 'is-scrolled' : ''}`}
-        variants={navbarVariants}
-        animate={isHidden ? 'hidden' : 'visible'}
+        ref={navRef}
+        className='site-nav'
+        animate={{
+          y: isHidden ? '-110%' : '0%',
+          backgroundColor: isScrolled ? 'rgba(248, 250, 252, 0.95)' : 'rgba(248, 250, 252, 0.82)',
+          borderBottomColor: isScrolled ? 'rgba(148, 163, 184, 0.6)' : 'rgba(203, 213, 225, 0.7)',
+          backdropFilter: isScrolled ? 'blur(12px)' : 'blur(8px)',
+          boxShadow: isScrolled ? '0 8px 22px rgba(15, 23, 42, 0.07)' : '0 0 0 rgba(15, 23, 42, 0)'
+        }}
         transition={standardTransition}
       >
-        <a href="#home" className="nav-brand" onClick={() => setMenuOpen(false)}>
+        <a href="#home" className="nav-brand" onClick={(event) => handleNavClick(event, 'home')}>
           Mohammad Alkhatib
         </a>
 
         <div className="nav-links">
-          {navItems.map((item) => (
+          {NAV_ITEMS.map((item) => (
             <motion.a
-              key={item.href}
-              className={`nav-link ${activeSection === item.href.slice(1) ? 'active' : ''}`}
-              href={item.href}
-              onClick={(event) => scrollToSection(event, item.href)}
+              key={item.id}
+              className={`nav-link ${activeSection === item.id ? 'active' : ''}`}
+              href={`#${item.id}`}
+              onClick={(event) => handleNavClick(event, item.id)}
               whileHover={linkHover}
               whileTap={{ scale: 0.98 }}
               transition={microTransition}
@@ -102,7 +125,7 @@ function Navbar() {
           <motion.a
             className={`nav-link nav-cta ${activeSection === 'contact' ? 'active' : ''}`}
             href="#contact"
-            onClick={(event) => scrollToSection(event, '#contact')}
+            onClick={(event) => handleNavClick(event, 'contact')}
             whileHover={{ y: -1, scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             transition={microTransition}
@@ -111,7 +134,7 @@ function Navbar() {
           </motion.a>
         </div>
 
-        <button className="hamburger" onClick={() => setMenuOpen(true)}>
+        <button className="hamburger" onClick={() => setMenuOpen(true)} aria-label='Open menu' aria-expanded={menuOpen}>
           <span></span>
           <span></span>
           <span></span>
@@ -126,13 +149,13 @@ function Navbar() {
         transition={standardTransition}
         style={{ pointerEvents: menuOpen ? 'auto' : 'none' }}
       >
-        <button className="close-menu" onClick={() => setMenuOpen(false)}>×</button>
-        {navItems.map((item) => (
+        <button className="close-menu" onClick={() => setMenuOpen(false)} aria-label='Close menu'>×</button>
+        {NAV_ITEMS.map((item) => (
           <motion.a
-            key={item.href}
-            className={`nav-link ${activeSection === item.href.slice(1) ? 'active' : ''}`}
-            href={item.href}
-            onClick={(event) => scrollToSection(event, item.href)}
+            key={item.id}
+            className={`nav-link ${activeSection === item.id ? 'active' : ''}`}
+            href={`#${item.id}`}
+            onClick={(event) => handleNavClick(event, item.id)}
             whileHover={linkHover}
             whileTap={{ scale: 0.98 }}
             transition={microTransition}
@@ -143,7 +166,7 @@ function Navbar() {
         <motion.a
           className={`nav-link nav-cta ${activeSection === 'contact' ? 'active' : ''}`}
           href="#contact"
-          onClick={(event) => scrollToSection(event, '#contact')}
+          onClick={(event) => handleNavClick(event, 'contact')}
           whileHover={{ y: -1, scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
           transition={microTransition}

@@ -4,9 +4,9 @@ import { motion } from 'framer-motion';
 import githubIcon from '../assets/github.png';
 import linkedinIcon from '../assets/linkedin.png';
 import profileImage from '../assets/ChatGPT_Image_Feb_1__2026__04_57_19_PM-removebg-preview.png';
+import Button from '../Components/Button.jsx';
 import SectionTag from '../Components/SectionTag.jsx';
-import MotionButtonLink from '../motion/MotionButtonLink.jsx';
-import { revealItem, revealSection, staggerContainer, standardTransition } from '../motion/variants.js';
+import { revealItem, revealSection, staggerContainer, standardTransition } from '../animations/variants.js';
 
 function Hero() {
   return (
@@ -32,12 +32,12 @@ function Hero() {
           </motion.p>
 
           <motion.div className='hero-cta' variants={revealItem}>
-            <MotionButtonLink href='https://github.com/mhmdaadf' target='_blank' rel='noreferrer' className='cta-primary'>
+            <Button href='https://github.com/mhmdaadf' target='_blank' rel='noreferrer' className='cta-primary'>
               View GitHub
-            </MotionButtonLink>
-            <MotionButtonLink href='#contact' className='cta-secondary'>
+            </Button>
+            <Button href='#contact' className='cta-secondary'>
               Contact Me
-            </MotionButtonLink>
+            </Button>
           </motion.div>
 
           <motion.div className='hero-social' variants={revealItem}>

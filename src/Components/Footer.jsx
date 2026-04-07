@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import '../Styles/Footer.css';
-import { linkHover, microTransition, revealItem, revealSection, staggerContainer } from '../motion/variants.js';
+import { linkHover, microTransition, revealItem, revealSection, staggerContainer } from '../animations/variants.js';
 
 function Footer() {
   const scrollToTop = () => {

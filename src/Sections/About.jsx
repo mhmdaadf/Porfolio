@@ -2,8 +2,9 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import '../Styles/About.css';
 import SectionTag from '../Components/SectionTag.jsx';
+import Card from '../Components/Card.jsx';
 import MotionSection from '../motion/MotionSection.jsx';
-import { cardHover, revealItem, standardTransition, staggerContainer } from '../motion/variants.js';
+import { revealItem, staggerContainer } from '../animations/variants.js';
 
 function About() {
   return (
@@ -22,29 +23,29 @@ function About() {
       </motion.p>
 
       <motion.div className='about-grid' variants={staggerContainer}>
-        <motion.article className='about-item' variants={revealItem} whileHover={cardHover} transition={standardTransition}>
+        <Card className='about-item'>
             <h3>System Design</h3>
             <p>
               I design modular backend services with clear boundaries, robust contracts, and practical domain
               modeling for long-term scalability.
             </p>
-        </motion.article>
+        </Card>
 
-        <motion.article className='about-item' variants={revealItem} whileHover={cardHover} transition={standardTransition}>
+        <Card className='about-item'>
             <h3>API Engineering</h3>
             <p>
               I build secure REST APIs with validation, auth guards, and observability so teams can deliver
               features confidently in production.
             </p>
-        </motion.article>
+        </Card>
 
-        <motion.article className='about-item' variants={revealItem} whileHover={cardHover} transition={standardTransition}>
+        <Card className='about-item'>
             <h3>Data and Performance</h3>
             <p>
               I optimize queries, cache critical paths, and improve response times to keep user-facing flows
               fast under real traffic conditions.
             </p>
-        </motion.article>
+        </Card>
       </motion.div>
     </MotionSection>
   );

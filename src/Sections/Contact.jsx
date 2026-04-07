@@ -1,10 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import '../Styles/Contact.css';
+import Button from '../Components/Button.jsx';
 import SectionTag from '../Components/SectionTag.jsx';
 import MotionSection from '../motion/MotionSection.jsx';
-import MotionButtonLink from '../motion/MotionButtonLink.jsx';
-import { revealItem, staggerContainer, standardTransition } from '../motion/variants.js';
+import { revealItem, staggerContainer, standardTransition } from '../animations/variants.js';
 
 function Contact() {
   return (
@@ -31,9 +31,9 @@ function Contact() {
       </motion.div>
 
       <motion.div variants={revealItem}>
-        <MotionButtonLink href='mailto:mohamad.a.alkhatib@gmail.com' className='cta-primary'>
+        <Button href='mailto:mohamad.a.alkhatib@gmail.com' className='cta-primary'>
           Start a conversation
-        </MotionButtonLink>
+        </Button>
       </motion.div>
     </MotionSection>
   );

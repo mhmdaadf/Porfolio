@@ -11,18 +11,6 @@
   align-items: center;
   justify-content: space-between;
   padding: 1rem 1.2rem;
-  transition:
-    background-color var(--motion-base) var(--ease-standard),
-    border-color var(--motion-base) var(--ease-standard),
-    box-shadow var(--motion-base) var(--ease-standard),
-    backdrop-filter var(--motion-base) var(--ease-standard);
-}
-
-.site-nav.is-scrolled {
-  background: rgba(248, 250, 252, 0.95);
-  border-bottom-color: rgba(148, 163, 184, 0.6);
-  backdrop-filter: blur(12px);
-  box-shadow: 0 8px 22px rgba(15, 23, 42, 0.07);
 }
 
 .nav-brand {

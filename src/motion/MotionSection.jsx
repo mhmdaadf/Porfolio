@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { revealSection, staggerContainer } from './variants.js';
+import { revealSection, staggerContainer } from '../animations/variants.js';
 
 function MotionSection({
   id,

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useMotionValueEvent, useScroll } from 'framer-motion';
 
-export function useNavbarMotion({ hideOffset = 120, delta = 3, disabled = false } = {}) {
+function useScrollDirection({ hideOffset = 120, delta = 3, disabled = false } = {}) {
   const { scrollY } = useScroll();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isHidden, setIsHidden] = useState(false);
@@ -26,3 +26,5 @@ export function useNavbarMotion({ hideOffset = 120, delta = 3, disabled = false 
 
   return { isScrolled, isHidden };
 }
+
+export default useScrollDirection;

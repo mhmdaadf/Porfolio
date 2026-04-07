@@ -2,9 +2,10 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import '../Styles/Skills.css';
 import SectionTag from '../Components/SectionTag.jsx';
+import Card from '../Components/Card.jsx';
 import skillGroups from '../data/skills.js';
 import MotionSection from '../motion/MotionSection.jsx';
-import { cardHover, revealItem, standardTransition, staggerContainer } from '../motion/variants.js';
+import { revealItem, standardTransition, staggerContainer } from '../animations/variants.js';
 
 function Skills() {
   return (
@@ -18,12 +19,9 @@ function Skills() {
 
       <motion.div className='skills-groups' variants={staggerContainer}>
           {skillGroups.map((group) => (
-            <motion.article
+            <Card
               key={group.title}
               className='skills-category'
-              variants={revealItem}
-              whileHover={cardHover}
-              transition={standardTransition}
             >
               <h3>{group.title}</h3>
               <motion.div className='skills-grid' variants={staggerContainer}>
@@ -39,7 +37,7 @@ function Skills() {
                   </motion.span>
                 ))}
               </motion.div>
-            </motion.article>
+            </Card>
           ))}
       </motion.div>
     </MotionSection>
