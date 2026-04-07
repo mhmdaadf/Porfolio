@@ -1,42 +1,42 @@
 const projects = [
   {
-    title: 'Billing API Platform',
+    title: 'Personal Portfolio Website',
     problem:
-      'Manual invoicing caused delayed payouts and frequent reconciliation mistakes for a logistics startup.',
-    stack: ['NestJS', 'PostgreSQL', 'Redis', 'Docker'],
+      'Needed a fast, polished personal site to present projects, skills, and contact channels in a professional way.',
+    stack: ['React', 'Vite', 'CSS', 'Framer Motion'],
     achievements: [
-      'Designed modular architecture with domain-driven service boundaries.',
-      'Reduced invoice processing latency by 43% using queue-based workers.',
-      'Implemented role-based access and audit trails for finance operations.'
+      'Designed a responsive multi-section layout optimized for desktop and mobile.',
+      'Implemented smooth navigation and modern motion interactions for better UX.',
+      'Deployed to Netlify with production-ready performance and clean structure.'
     ],
-    github: 'https://github.com/mhmdaadf',
-    demo: 'https://example.com'
+    github: 'https://github.com/mhmdaadf/Porfolio.git',
+    demo: 'https://portfoliomhmd.netlify.app'
   },
   {
-    title: 'Multi-Tenant Auth Service',
+    title: 'Online Book Store',
     problem:
-      'A SaaS team needed secure tenant isolation and centralized authentication for multiple products.',
-    stack: ['NestJS', 'JWT', 'PostgreSQL', 'Prisma'],
+      'Built an online bookstore experience where users can browse books, explore categories, and navigate products easily.',
+    stack: ['React', 'Vite', 'JavaScript', 'CSS'],
     achievements: [
-      'Built tenant-aware auth flows with isolated permissions and policy guards.',
-      'Added refresh-token rotation and session revocation strategy.',
-      'Cut onboarding time for new tenant apps from days to hours.'
+      'Implemented reusable UI components for catalog and product presentation.',
+      'Created clean page structure and user flows for discovery and navigation.',
+      'Published to Netlify for reliable public access and easy sharing.'
     ],
-    github: 'https://github.com/mhmdaadf',
-    demo: 'https://example.com'
+    github: 'https://github.com/mhmdaadf/online-book-store.git',
+    demo: 'https://online-book-s.netlify.app'
   },
   {
-    title: 'Observability Dashboard API',
+    title: 'Event Management Platform (Backend)',
     problem:
-      'Engineering teams lacked real-time visibility into API failures and performance regressions.',
-    stack: ['Node.js', 'NestJS', 'TimescaleDB', 'WebSocket'],
+      'Built and improved backend modules for event workflows, API structure, and service reliability for a multi-feature platform.',
+    stack: ['Node.js', 'Express', 'MongoDB', 'REST API'],
     achievements: [
-      'Created streaming endpoints for live service health indicators.',
-      'Introduced request tracing and SLA alerts for critical routes.',
-      'Improved mean time to detection by 55% through structured telemetry.'
+      'Contributed to backend architecture and core event-related endpoints.',
+      'Worked on clean API structure and maintainable server-side logic.',
+      'Prepared backend foundations for production deployment with the team.'
     ],
-    github: 'https://github.com/mhmdaadf',
-    demo: 'https://example.com'
+    github: 'https://github.com/Hadi20Diab/Event-Management-Platform-backend.git',
+    demo: null
   }
 ];
 

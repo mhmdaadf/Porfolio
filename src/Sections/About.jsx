@@ -14,11 +14,11 @@ function About() {
       </motion.div>
 
       <motion.h2 className='about-title' variants={revealItem}>
-        Backend-first mindset with product-level ownership.
+        Full-stack mindset with product-level ownership.
       </motion.h2>
 
       <motion.p className='about-intro' variants={revealItem}>
-          I help teams ship reliable backend systems, from API design to deployment. My focus is building
+          I help teams ship reliable full-stack products, from interface design to API deployment. My focus is building
           maintainable architecture that supports fast product iteration without accumulating technical debt.
       </motion.p>
 
@@ -26,15 +26,15 @@ function About() {
         <Card className='about-item'>
             <h3>System Design</h3>
             <p>
-              I design modular backend services with clear boundaries, robust contracts, and practical domain
+              I design modular full-stack systems with clear boundaries, robust contracts, and practical domain
               modeling for long-term scalability.
             </p>
         </Card>
 
         <Card className='about-item'>
-            <h3>API Engineering</h3>
+            <h3>Full-Stack Engineering</h3>
             <p>
-              I build secure REST APIs with validation, auth guards, and observability so teams can deliver
+              I build secure APIs and responsive user interfaces so teams can deliver
               features confidently in production.
             </p>
         </Card>

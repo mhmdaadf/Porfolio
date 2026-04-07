@@ -14,7 +14,7 @@ function Skills() {
         <SectionTag label='SKILLS' />
       </motion.div>
       <motion.h2 className='skills-title' variants={revealItem}>
-        Tools and technologies I use to deliver production backend systems.
+        Tools and technologies I use to deliver production full-stack products.
       </motion.h2>
 
       <motion.div className='skills-groups' variants={staggerContainer}>

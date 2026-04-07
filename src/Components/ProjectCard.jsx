@@ -28,9 +28,15 @@ function ProjectCard({ project }) {
         <motion.a href={project.github} target='_blank' rel='noreferrer' whileHover={{ y: -1, scale: 1.02 }} whileTap={{ scale: 0.98 }} transition={standardTransition}>
           GitHub
         </motion.a>
-        <motion.a href={project.demo} target='_blank' rel='noreferrer' whileHover={{ y: -1, scale: 1.02 }} whileTap={{ scale: 0.98 }} transition={standardTransition}>
-          Live Demo
-        </motion.a>
+        {project.demo ? (
+          <motion.a href={project.demo} target='_blank' rel='noreferrer' whileHover={{ y: -1, scale: 1.02 }} whileTap={{ scale: 0.98 }} transition={standardTransition}>
+            Live Demo
+          </motion.a>
+        ) : (
+          <span className='project-link-disabled' aria-label='No live demo yet'>
+            No Live Demo
+          </span>
+        )}
       </div>
     </Card>
   );

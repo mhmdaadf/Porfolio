@@ -30,34 +30,6 @@
   margin-bottom: 1.3rem;
 }
 
-.hero-social {
-  display: flex;
-  align-items: center;
-  gap: 0.7rem;
-}
-
-.hero-social a {
-  width: 42px;
-  height: 42px;
-  border-radius: 10px;
-  border: 1px solid var(--stroke);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background: #ffffff;
-}
-
-.hero-social a:hover {
-  border-color: var(--accent);
-  box-shadow: 0 9px 18px rgba(15, 23, 42, 0.1);
-}
-
-.hero-social img,
-.hero-social svg {
-  width: 20px;
-  height: 20px;
-}
-
 .hero-profile {
   position: relative;
 }

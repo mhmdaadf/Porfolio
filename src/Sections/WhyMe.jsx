@@ -10,12 +10,12 @@ const points = [
   {
     title: 'Architecture First',
     text:
-      'I design backend features around clear boundaries, testable modules, and maintainable business rules.'
+      'I design full-stack features around clear boundaries, testable modules, and maintainable business rules.'
   },
   {
     title: 'Scalability Mindset',
     text:
-      'I build APIs with growth in mind: async workflows, database efficiency, and observable performance.'
+      'I build products with growth in mind: efficient APIs, responsive interfaces, and observable performance.'
   },
   {
     title: 'Production Focus',
@@ -30,10 +30,10 @@ function WhyMe() {
       <motion.div variants={revealItem}>
         <SectionTag label='WHY ME' />
       </motion.div>
-      <motion.h2 variants={revealItem}>I build backend systems that stay clean as products grow.</motion.h2>
+        <motion.h2 variants={revealItem}>I build full-stack systems that stay clean as products grow.</motion.h2>
       <motion.p className='why-me-intro' variants={revealItem}>
-          Recruiters and teams work with me when they need more than endpoints. I deliver stable API foundations
-          that are easy for teams to scale and extend.
+          Recruiters and teams work with me when they need more than isolated features. I deliver stable product
+          foundations that are easy for teams to scale and extend.
       </motion.p>
 
       <motion.div className='why-me-grid' variants={staggerContainer}>

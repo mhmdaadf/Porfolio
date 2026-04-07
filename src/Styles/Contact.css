@@ -1,53 +1,67 @@
 .contact {
-  background: var(--surface);
+  background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
 }
 
 .contact-container {
   text-align: center;
+  width: min(760px, 100%);
 }
 
 .contact h2 {
-  font-size: clamp(1.75rem, 4vw, 2.7rem);
+  font-size: clamp(1.9rem, 4.2vw, 3rem);
+  letter-spacing: -0.02em;
   margin-bottom: 0.8rem;
 }
 
 .contact-intro {
-  max-width: 760px;
-  margin: 0 auto 1.6rem;
+  max-width: 640px;
+  margin: 0 auto 1.4rem;
   color: var(--muted);
 }
 
-.contact-links {
-  display: grid;
-  gap: 0.8rem;
-  width: min(680px, 100%);
-  margin: 0 auto 1.6rem;
+.contact-cta {
+  margin: 0 auto 0.9rem;
 }
 
-.contact-links a {
-  position: relative;
-  overflow: hidden;
-  border: 1px solid var(--stroke);
-  border-radius: 12px;
-  padding: 0.84rem;
-  background: #f8fafc;
+.contact-main-cta {
+  min-width: 250px;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
 }
 
-.contact-links a::after {
-  content: '';
-  position: absolute;
-  left: 0.84rem;
-  right: 0.84rem;
-  bottom: 0.55rem;
-  height: 1px;
-  background: var(--accent);
-  opacity: 0;
+.contact-email-fallback {
+  margin: 0 auto;
+  font-size: 0.9rem;
+  color: rgba(71, 85, 105, 0.95);
 }
 
-.contact-links a:hover {
-  border-color: var(--accent);
+.contact-email-fallback a {
+  color: var(--accent);
+  font-weight: 600;
 }
 
-.contact-links a:hover::after {
-  opacity: 1;
+@media (max-width: 640px) {
+  .contact-main-cta {
+    width: 100%;
+    min-width: 0;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .contact {
+    background: linear-gradient(180deg, #0f172a 0%, #111827 100%);
+  }
+
+  .contact h2 {
+    color: #f8fafc;
+  }
+
+  .contact-intro {
+    color: rgba(203, 213, 225, 0.92);
+  }
+
+  .contact-email-fallback {
+    color: rgba(203, 213, 225, 0.92);
+  }
 }

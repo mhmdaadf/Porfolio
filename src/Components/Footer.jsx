@@ -23,7 +23,7 @@ function Footer() {
         </motion.button>
 
         <motion.p className='footer-copy' variants={revealItem}>
-          Backend Engineer focused on scalable APIs, clean architecture, and reliable product infrastructure.
+          Full-stack engineer focused on scalable products, clean architecture, and reliable user experiences.
         </motion.p>
 
         <motion.div className='social-links' variants={staggerContainer}>
