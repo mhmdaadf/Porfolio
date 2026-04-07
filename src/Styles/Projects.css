@@ -34,21 +34,11 @@
 .project-btn {
   display: inline-block;
   border: 2px solid #fff;
-  border-bottom: 0;
-  border-top: 0;
   padding: 0.8rem 2rem;
   font-size: 0.9rem;
   letter-spacing: 3px;
   font-weight: 600;
-  background: transparent;
   color: #fff;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.project-btn:hover {
-  background-color: #fff;
-  color: #000;
 }
 
 /* Projects Grid */

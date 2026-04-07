@@ -14,7 +14,7 @@ function Skills() {
   return (
     <section className='skills' id='skills'>
       <div className='skills-container'>
-        <button className='skills-btn'>SKILLS</button>
+        <div className='skills-btn'>SKILLS</div>
         <div className='skills-category'>
           <h3>Using Now:</h3>
           <div className='skills-grid'>

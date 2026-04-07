@@ -13,7 +13,7 @@ function About() {
           and thoughtful design.
         </p>
         
-        <button className='explore-btn'>EXPLORE</button>
+        <div className='explore-btn'>EXPLORE</div>
         
         <div className='what-i-do'>
           <span></span>

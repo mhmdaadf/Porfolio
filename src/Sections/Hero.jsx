@@ -48,7 +48,7 @@ function Hero() {
           Passionate about creating beautiful user interfaces and great user experiences. Always eager to learn new 
           technologies and improve my skills.
         </p>
-        <button className="hire-btn">HIRE ME</button>
+        <div className="hire-btn">HIRE ME</div>
       </section>
     </>
   );

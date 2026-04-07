@@ -16,21 +16,11 @@
 .skills-btn {
   display: inline-block;
   border: 2px solid #000;
-  border-bottom: 0;
-  border-top: 0;
   padding: 0.8rem 2rem;
   font-size: 0.9rem;
   letter-spacing: 3px;
   font-weight: 600;
   margin-bottom: 3rem;
-  background: transparent;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.skills-btn:hover {
-  background-color: #000;
-  color: #fff;
 }
 
 .skills-category {
