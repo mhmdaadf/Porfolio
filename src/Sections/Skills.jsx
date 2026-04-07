@@ -1,31 +1,48 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import '../Styles/Skills.css';
 import SectionTag from '../Components/SectionTag.jsx';
 import skillGroups from '../data/skills.js';
+import MotionSection from '../motion/MotionSection.jsx';
+import { cardHover, revealItem, standardTransition, staggerContainer } from '../motion/variants.js';
 
 function Skills() {
   return (
-    <section className='skills section-shell' id='skills'>
-      <div className='section-container'>
+    <MotionSection id='skills' className='skills section-shell'>
+      <motion.div variants={revealItem}>
         <SectionTag label='SKILLS' />
-        <h2 className='skills-title'>Tools and technologies I use to deliver production backend systems.</h2>
+      </motion.div>
+      <motion.h2 className='skills-title' variants={revealItem}>
+        Tools and technologies I use to deliver production backend systems.
+      </motion.h2>
 
-        <div className='skills-groups'>
+      <motion.div className='skills-groups' variants={staggerContainer}>
           {skillGroups.map((group) => (
-            <article key={group.title} className='skills-category'>
+            <motion.article
+              key={group.title}
+              className='skills-category'
+              variants={revealItem}
+              whileHover={cardHover}
+              transition={standardTransition}
+            >
               <h3>{group.title}</h3>
-              <div className='skills-grid'>
+              <motion.div className='skills-grid' variants={staggerContainer}>
                 {group.items.map((skill) => (
-                  <span key={skill} className='skill-badge'>
+                  <motion.span
+                    key={skill}
+                    className='skill-badge'
+                    variants={revealItem}
+                    whileHover={{ y: -1, scale: 1.03 }}
+                    transition={standardTransition}
+                  >
                     {skill}
-                  </span>
+                  </motion.span>
                 ))}
-              </div>
-            </article>
+              </motion.div>
+            </motion.article>
           ))}
-        </div>
-      </div>
-    </section>
+      </motion.div>
+    </MotionSection>
   );
 }
 

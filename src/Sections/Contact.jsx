@@ -1,33 +1,41 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import '../Styles/Contact.css';
 import SectionTag from '../Components/SectionTag.jsx';
+import MotionSection from '../motion/MotionSection.jsx';
+import MotionButtonLink from '../motion/MotionButtonLink.jsx';
+import { revealItem, staggerContainer, standardTransition } from '../motion/variants.js';
 
 function Contact() {
   return (
-    <section className='contact section-shell' id='contact'>
-      <div className='section-container contact-container'>
+    <MotionSection id='contact' className='contact section-shell' containerClassName='section-container contact-container'>
+      <motion.div variants={revealItem}>
         <SectionTag label='CONTACT' />
-        <h2>Let&apos;s build something scalable.</h2>
-        <p className='contact-intro'>
+      </motion.div>
+      <motion.h2 variants={revealItem}>Let&apos;s build something scalable.</motion.h2>
+      <motion.p className='contact-intro' variants={revealItem}>
           I am available for backend engineering roles and freelance API architecture projects. If your team
           needs robust systems and clean technical foundations, let&apos;s connect.
-        </p>
+      </motion.p>
 
-        <div className='contact-links'>
-          <a href='mailto:mohamad.a.alkhatib@gmail.com'>mohamad.a.alkhatib@gmail.com</a>
-          <a href='https://github.com/mhmdaadf' target='_blank' rel='noreferrer'>
+      <motion.div className='contact-links' variants={staggerContainer}>
+        <motion.a href='mailto:mohamad.a.alkhatib@gmail.com' variants={revealItem} whileHover={{ y: -1, scale: 1.01 }} transition={standardTransition}>
+          mohamad.a.alkhatib@gmail.com
+        </motion.a>
+        <motion.a href='https://github.com/mhmdaadf' target='_blank' rel='noreferrer' variants={revealItem} whileHover={{ y: -1, scale: 1.01 }} transition={standardTransition}>
             github.com/mhmdaadf
-          </a>
-          <a href='https://linkedin.com' target='_blank' rel='noreferrer'>
+        </motion.a>
+        <motion.a href='https://linkedin.com' target='_blank' rel='noreferrer' variants={revealItem} whileHover={{ y: -1, scale: 1.01 }} transition={standardTransition}>
             linkedin.com
-          </a>
-        </div>
+        </motion.a>
+      </motion.div>
 
-        <a href='mailto:mohamad.a.alkhatib@gmail.com' className='cta-primary'>
+      <motion.div variants={revealItem}>
+        <MotionButtonLink href='mailto:mohamad.a.alkhatib@gmail.com' className='cta-primary'>
           Start a conversation
-        </a>
-      </div>
-    </section>
+        </MotionButtonLink>
+      </motion.div>
+    </MotionSection>
   );
 }
 

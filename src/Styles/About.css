@@ -25,11 +25,9 @@
   border: 1px solid var(--stroke);
   border-radius: 16px;
   background: #ffffff;
-  transition: border-color 0.25s ease, transform 0.25s ease;
 }
 
 .about-item:hover {
-  transform: translateY(-4px);
   border-color: var(--accent);
 }
 

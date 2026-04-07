@@ -1,11 +1,14 @@
 import '../Styles/Navbar.css';
 import React, { useEffect, useRef, useState } from "react";
+import { motion } from 'framer-motion';
+import { linkHover, microTransition, mobileMenuVariants, navbarVariants, standardTransition } from '../motion/variants.js';
+import { useNavbarMotion } from '../motion/useNavbarMotion.js';
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
   const activeSectionRef = useRef('home');
+  const { isScrolled, isHidden } = useNavbarMotion({ hideOffset: 120, disabled: menuOpen });
 
   const navItems = [
     { label: 'About', href: '#about' },
@@ -35,8 +38,6 @@ function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 16);
-
       const marker = window.scrollY + getNavOffset() + 20;
       const sections = Array.from(document.querySelectorAll('header[id], section[id]'));
       let current = 'home';
@@ -74,29 +75,40 @@ function Navbar() {
 
   return (
     <>
-      <nav className={`site-nav ${isScrolled ? 'is-scrolled' : ''}`}>
+      <motion.nav
+        className={`site-nav ${isScrolled ? 'is-scrolled' : ''}`}
+        variants={navbarVariants}
+        animate={isHidden ? 'hidden' : 'visible'}
+        transition={standardTransition}
+      >
         <a href="#home" className="nav-brand" onClick={() => setMenuOpen(false)}>
           Mohammad Alkhatib
         </a>
 
         <div className="nav-links">
           {navItems.map((item) => (
-            <a
+            <motion.a
               key={item.href}
               className={`nav-link ${activeSection === item.href.slice(1) ? 'active' : ''}`}
               href={item.href}
               onClick={(event) => scrollToSection(event, item.href)}
+              whileHover={linkHover}
+              whileTap={{ scale: 0.98 }}
+              transition={microTransition}
             >
               {item.label}
-            </a>
+            </motion.a>
           ))}
-          <a
+          <motion.a
             className={`nav-link nav-cta ${activeSection === 'contact' ? 'active' : ''}`}
             href="#contact"
             onClick={(event) => scrollToSection(event, '#contact')}
+            whileHover={{ y: -1, scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+            transition={microTransition}
           >
             Contact me
-          </a>
+          </motion.a>
         </div>
 
         <button className="hamburger" onClick={() => setMenuOpen(true)}>
@@ -104,28 +116,41 @@ function Navbar() {
           <span></span>
           <span></span>
         </button>
-      </nav>
+      </motion.nav>
 
-      <div className={`mobile-menu ${menuOpen ? 'active' : ''}`}>
+      <motion.div
+        className='mobile-menu'
+        variants={mobileMenuVariants}
+        initial='closed'
+        animate={menuOpen ? 'open' : 'closed'}
+        transition={standardTransition}
+        style={{ pointerEvents: menuOpen ? 'auto' : 'none' }}
+      >
         <button className="close-menu" onClick={() => setMenuOpen(false)}>×</button>
         {navItems.map((item) => (
-          <a
+          <motion.a
             key={item.href}
             className={`nav-link ${activeSection === item.href.slice(1) ? 'active' : ''}`}
             href={item.href}
             onClick={(event) => scrollToSection(event, item.href)}
+            whileHover={linkHover}
+            whileTap={{ scale: 0.98 }}
+            transition={microTransition}
           >
             {item.label}
-          </a>
+          </motion.a>
         ))}
-        <a
+        <motion.a
           className={`nav-link nav-cta ${activeSection === 'contact' ? 'active' : ''}`}
           href="#contact"
           onClick={(event) => scrollToSection(event, '#contact')}
+          whileHover={{ y: -1, scale: 1.02 }}
+          whileTap={{ scale: 0.98 }}
+          transition={microTransition}
         >
           Contact me
-        </a>
-      </div>
+        </motion.a>
+      </motion.div>
     </>
   );
 }

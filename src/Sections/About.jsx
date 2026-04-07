@@ -1,46 +1,52 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import '../Styles/About.css';
 import SectionTag from '../Components/SectionTag.jsx';
+import MotionSection from '../motion/MotionSection.jsx';
+import { cardHover, revealItem, standardTransition, staggerContainer } from '../motion/variants.js';
 
 function About() {
   return (
-    <section className='about section-shell' id='about'>
-      <div className='section-container about-container'>
+    <MotionSection id='about' className='about section-shell' containerClassName='section-container about-container'>
+      <motion.div variants={revealItem}>
         <SectionTag label='ABOUT' />
-        <h2 className='about-title'>Backend-first mindset with product-level ownership.</h2>
+      </motion.div>
 
-        <p className='about-intro'>
+      <motion.h2 className='about-title' variants={revealItem}>
+        Backend-first mindset with product-level ownership.
+      </motion.h2>
+
+      <motion.p className='about-intro' variants={revealItem}>
           I help teams ship reliable backend systems, from API design to deployment. My focus is building
           maintainable architecture that supports fast product iteration without accumulating technical debt.
-        </p>
+      </motion.p>
 
-        <div className='about-grid'>
-          <article className='about-item'>
+      <motion.div className='about-grid' variants={staggerContainer}>
+        <motion.article className='about-item' variants={revealItem} whileHover={cardHover} transition={standardTransition}>
             <h3>System Design</h3>
             <p>
               I design modular backend services with clear boundaries, robust contracts, and practical domain
               modeling for long-term scalability.
             </p>
-          </article>
+        </motion.article>
 
-          <article className='about-item'>
+        <motion.article className='about-item' variants={revealItem} whileHover={cardHover} transition={standardTransition}>
             <h3>API Engineering</h3>
             <p>
               I build secure REST APIs with validation, auth guards, and observability so teams can deliver
               features confidently in production.
             </p>
-          </article>
+        </motion.article>
 
-          <article className='about-item'>
+        <motion.article className='about-item' variants={revealItem} whileHover={cardHover} transition={standardTransition}>
             <h3>Data and Performance</h3>
             <p>
               I optimize queries, cache critical paths, and improve response times to keep user-facing flows
               fast under real traffic conditions.
             </p>
-          </article>
-        </div>
-      </div>
-    </section>
+        </motion.article>
+      </motion.div>
+    </MotionSection>
   );
 }
 

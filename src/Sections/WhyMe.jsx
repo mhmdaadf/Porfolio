@@ -1,6 +1,9 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import SectionTag from '../Components/SectionTag.jsx';
 import '../Styles/WhyMe.css';
+import MotionSection from '../motion/MotionSection.jsx';
+import { cardHover, revealItem, standardTransition, staggerContainer } from '../motion/variants.js';
 
 const points = [
   {
@@ -22,25 +25,30 @@ const points = [
 
 function WhyMe() {
   return (
-    <section className='why-me section-shell' id='why-me'>
-      <div className='section-container'>
+    <MotionSection id='why-me' className='why-me section-shell'>
+      <motion.div variants={revealItem}>
         <SectionTag label='WHY ME' />
-        <h2>I build backend systems that stay clean as products grow.</h2>
-        <p className='why-me-intro'>
+      </motion.div>
+      <motion.h2 variants={revealItem}>I build backend systems that stay clean as products grow.</motion.h2>
+      <motion.p className='why-me-intro' variants={revealItem}>
           Recruiters and teams work with me when they need more than endpoints. I deliver stable API foundations
           that are easy for teams to scale and extend.
-        </p>
+      </motion.p>
 
-        <div className='why-me-grid'>
+      <motion.div className='why-me-grid' variants={staggerContainer}>
           {points.map((point) => (
-            <article key={point.title}>
+            <motion.article
+              key={point.title}
+              variants={revealItem}
+              whileHover={cardHover}
+              transition={standardTransition}
+            >
               <h3>{point.title}</h3>
               <p>{point.text}</p>
-            </article>
+            </motion.article>
           ))}
-        </div>
-      </div>
-    </section>
+      </motion.div>
+    </MotionSection>
   );
 }
 

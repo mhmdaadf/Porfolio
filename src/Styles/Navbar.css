@@ -41,7 +41,6 @@
   position: relative;
   font-size: 0.86rem;
   color: var(--muted);
-  transition: color var(--motion-base) var(--ease-standard);
 }
 
 .nav-link:hover {
@@ -50,6 +49,7 @@
 
 .nav-link.active {
   color: var(--ink);
+  font-weight: 500;
 }
 
 .nav-link:not(.nav-cta)::after {
@@ -62,7 +62,6 @@
   background: var(--accent);
   transform: scaleX(0);
   transform-origin: left;
-  transition: transform var(--motion-base) var(--ease-emphasized);
 }
 
 .nav-link:not(.nav-cta):hover::after {
@@ -78,15 +77,9 @@
   border-radius: 999px;
   padding: 0.35rem 0.8rem;
   color: var(--ink);
-  transition:
-    transform var(--motion-base) var(--ease-emphasized),
-    box-shadow var(--motion-base) var(--ease-standard),
-    border-color var(--motion-base) var(--ease-standard);
-  will-change: transform;
 }
 
 .nav-cta:hover {
-  transform: translateY(-1px) scale(1.02);
   border-color: var(--accent);
   box-shadow: 0 9px 16px rgba(15, 118, 110, 0.12);
 }
@@ -94,6 +87,7 @@
 .nav-cta.active {
   border-color: var(--accent);
   box-shadow: 0 7px 14px rgba(15, 118, 110, 0.1);
+  background: rgba(15, 118, 110, 0.07);
 }
 
 .hamburger {
@@ -122,12 +116,6 @@
   align-items: center;
   justify-content: center;
   gap: 1.25rem;
-  transform: translateX(100%);
-  transition: transform var(--motion-base) var(--ease-emphasized);
-}
-
-.mobile-menu.active {
-  transform: translateX(0%);
 }
 
 .close-menu {

@@ -1,8 +1,16 @@
 import React from 'react';
+import { motion } from 'framer-motion';
+import { cardHover, revealItem, standardTransition } from '../motion/variants.js';
 
 function ProjectCard({ project }) {
   return (
-    <article className='project-card'>
+    <motion.article
+      className='project-card'
+      variants={revealItem}
+      whileHover={cardHover}
+      whileTap={{ scale: 0.995 }}
+      transition={standardTransition}
+    >
       <div className='project-top'>
         <h3>{project.title}</h3>
         <p className='project-problem'>{project.problem}</p>
@@ -19,14 +27,14 @@ function ProjectCard({ project }) {
       </ul>
 
       <div className='project-links'>
-        <a href={project.github} target='_blank' rel='noreferrer'>
+        <motion.a href={project.github} target='_blank' rel='noreferrer' whileHover={{ y: -1, scale: 1.02 }} whileTap={{ scale: 0.98 }} transition={standardTransition}>
           GitHub
-        </a>
-        <a href={project.demo} target='_blank' rel='noreferrer'>
+        </motion.a>
+        <motion.a href={project.demo} target='_blank' rel='noreferrer' whileHover={{ y: -1, scale: 1.02 }} whileTap={{ scale: 0.98 }} transition={standardTransition}>
           Live Demo
-        </a>
+        </motion.a>
       </div>
-    </article>
+    </motion.article>
   );
 }
 
