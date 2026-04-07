@@ -7,6 +7,7 @@
   --muted: #475569;
   --accent: #0f766e;
   --stroke: #cbd5e1;
+  --nav-offset: 88px;
   --motion-fast: 0.3s;
   --motion-base: 0.42s;
   --ease-standard: cubic-bezier(0.2, 0, 0, 1);
@@ -21,6 +22,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: var(--nav-offset);
 }
 
 body {
@@ -48,6 +50,7 @@ img {
 
 .section-shell {
   padding: 5.5rem 1.2rem;
+  scroll-margin-top: var(--nav-offset);
 }
 
 .section-container {
@@ -95,8 +98,12 @@ img {
 }
 
 .cta-primary:hover {
-  transform: translateY(-1px) scale(1.02);
+  transform: translateY(-1px) scale(1.04);
   box-shadow: 0 12px 24px rgba(15, 118, 110, 0.26);
+}
+
+.cta-primary:active {
+  transform: translateY(0) scale(0.98);
 }
 
 .cta-secondary {
@@ -106,31 +113,32 @@ img {
 }
 
 .cta-secondary:hover {
-  transform: translateY(-1px) scale(1.02);
+  transform: translateY(-1px) scale(1.04);
   border-color: var(--accent);
   box-shadow: 0 8px 18px rgba(15, 23, 42, 0.08);
 }
 
-@keyframes fade-up {
-  from {
-    opacity: 0;
-    transform: translateY(14px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.reveal {
-  animation: fade-up 0.72s var(--ease-emphasized) both;
+.cta-secondary:active {
+  transform: translateY(0) scale(0.98);
 }
 
 .fade-up {
   opacity: 0;
-  transform: translateY(16px);
-  animation: fade-up 0.72s var(--ease-emphasized) forwards;
+  transform: translate3d(0, 22px, 0);
+  transition:
+    opacity 0.62s var(--ease-standard),
+    transform 0.62s var(--ease-emphasized);
+  transition-delay: var(--reveal-delay, 0ms);
   will-change: transform, opacity;
+}
+
+.fade-up.show {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+.stagger-group > .fade-up {
+  transition-delay: var(--reveal-delay, 0ms);
 }
 
 .hover-lift {
@@ -141,22 +149,8 @@ img {
 }
 
 .hover-lift:hover {
-  transform: translateY(-4px);
+  transform: translateY(-5px);
   box-shadow: 0 14px 24px rgba(15, 23, 42, 0.1);
-}
-
-.scroll-reveal {
-  opacity: 0;
-  transform: translateY(16px);
-  transition:
-    opacity 0.65s var(--ease-standard),
-    transform 0.65s var(--ease-emphasized);
-  will-change: transform, opacity;
-}
-
-.scroll-reveal.is-visible {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 @media (prefers-reduced-motion: reduce) {

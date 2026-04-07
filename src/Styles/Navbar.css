@@ -48,6 +48,10 @@
   color: var(--ink);
 }
 
+.nav-link.active {
+  color: var(--ink);
+}
+
 .nav-link:not(.nav-cta)::after {
   content: '';
   position: absolute;
@@ -62,6 +66,10 @@
 }
 
 .nav-link:not(.nav-cta):hover::after {
+  transform: scaleX(1);
+}
+
+.nav-link.active:not(.nav-cta)::after {
   transform: scaleX(1);
 }
 
@@ -81,6 +89,11 @@
   transform: translateY(-1px) scale(1.02);
   border-color: var(--accent);
   box-shadow: 0 9px 16px rgba(15, 118, 110, 0.12);
+}
+
+.nav-cta.active {
+  border-color: var(--accent);
+  box-shadow: 0 7px 14px rgba(15, 118, 110, 0.1);
 }
 
 .hamburger {
