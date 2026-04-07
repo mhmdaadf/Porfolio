@@ -1,9 +1,15 @@
 import '../Styles/Navbar.css';
 import React, { useState } from "react";
-import navLogo from '../assets/image.png';
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+
+  const navItems = [
+    { label: 'About', href: '#about' },
+    { label: 'Skills', href: '#skills' },
+    { label: 'Projects', href: '#projects' },
+    { label: 'Why Me', href: '#why-me' }
+  ];
 
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
@@ -15,22 +21,25 @@ function Navbar() {
 
   return (
     <>
-      <nav>
-        <img src={navLogo} alt="Logo" className="nav-logo" />
-        
+      <nav className="site-nav">
+        <a href="#home" className="nav-brand" onClick={() => setMenuOpen(false)}>
+          Mohammad Alkhatib
+        </a>
+
         <div className="nav-links">
-          <button className="navbar-btn" onClick={() => scrollToSection('about')}>
-            About me
-          </button>
-          <button className="navbar-btn" onClick={() => scrollToSection('skills')}>
-            Skills
-          </button>
-          <button className="navbar-btn" onClick={() => scrollToSection('projects')}>
-            Projects
-          </button>
-          <button className="navbar-btn contact-btn" onClick={() => scrollToSection('contact')}>
+          {navItems.map((item) => (
+            <a
+              key={item.href}
+              className="nav-link"
+              href={item.href}
+              onClick={() => scrollToSection(item.href.slice(1))}
+            >
+              {item.label}
+            </a>
+          ))}
+          <a className="nav-link nav-cta" href="#contact" onClick={() => scrollToSection('contact')}>
             Contact me
-          </button>
+          </a>
         </div>
 
         <button className="hamburger" onClick={() => setMenuOpen(true)}>
@@ -42,18 +51,19 @@ function Navbar() {
 
       <div className={`mobile-menu ${menuOpen ? 'active' : ''}`}>
         <button className="close-menu" onClick={() => setMenuOpen(false)}>×</button>
-        <button className="navbar-btn" onClick={() => scrollToSection('about')}>
-          About me
-        </button>
-        <button className="navbar-btn" onClick={() => scrollToSection('skills')}>
-          Skills
-        </button>
-        <button className="navbar-btn" onClick={() => scrollToSection('projects')}>
-          Projects
-        </button>
-        <button className="navbar-btn" onClick={() => scrollToSection('contact')}>
+        {navItems.map((item) => (
+          <a
+            key={item.href}
+            className="nav-link"
+            href={item.href}
+            onClick={() => scrollToSection(item.href.slice(1))}
+          >
+            {item.label}
+          </a>
+        ))}
+        <a className="nav-link nav-cta" href="#contact" onClick={() => scrollToSection('contact')}>
           Contact me
-        </button>
+        </a>
       </div>
     </>
   );

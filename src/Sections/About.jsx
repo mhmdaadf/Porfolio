@@ -1,53 +1,43 @@
 import React from 'react';
 import '../Styles/About.css';
+import SectionTag from '../Components/SectionTag.jsx';
 
 function About() {
   return (
-    <section className='about' id='about'>
-      <div className='about-container'>
-        <h2 className='section-title'>ABOUT ME</h2>
-        
+    <section className='about section-shell' id='about'>
+      <div className='section-container about-container'>
+        <SectionTag label='ABOUT' />
+        <h2 className='about-title'>Backend-first mindset with product-level ownership.</h2>
+
         <p className='about-intro'>
-          I'm a passionate developer who loves creating beautiful, functional, and user-friendly websites. 
-          With a strong foundation in modern web technologies, I bring ideas to life through clean code 
-          and thoughtful design.
+          I help teams ship reliable backend systems, from API design to deployment. My focus is building
+          maintainable architecture that supports fast product iteration without accumulating technical debt.
         </p>
-        
-        <div className='explore-btn'>EXPLORE</div>
-        
-        <div className='what-i-do'>
-          <span></span>
-          <p>WHAT I DO</p>
-          <span></span>
-        </div>
-        
+
         <div className='about-grid'>
-          <div className='about-item'>
-            <h3>Design</h3>
+          <article className='about-item'>
+            <h3>System Design</h3>
             <p>
-              Creating modern and intuitive user interfaces with attention to detail. 
-              I focus on user experience and accessibility to ensure websites are 
-              beautiful and functional.
+              I design modular backend services with clear boundaries, robust contracts, and practical domain
+              modeling for long-term scalability.
             </p>
-          </div>
-          
-          <div className='about-item'>
-            <h3>Development</h3>
+          </article>
+
+          <article className='about-item'>
+            <h3>API Engineering</h3>
             <p>
-              Building responsive websites and web applications using modern 
-              technologies like React, JavaScript, and CSS. Clean, maintainable 
-              code is my priority.
+              I build secure REST APIs with validation, auth guards, and observability so teams can deliver
+              features confidently in production.
             </p>
-          </div>
-          
-          <div className='about-item'>
-            <h3>Maintenance</h3>
+          </article>
+
+          <article className='about-item'>
+            <h3>Data and Performance</h3>
             <p>
-              Providing ongoing support and maintenance to keep websites 
-              running smoothly. Regular updates, bug fixes, and performance 
-              optimizations included.
+              I optimize queries, cache critical paths, and improve response times to keep user-facing flows
+              fast under real traffic conditions.
             </p>
-          </div>
+          </article>
         </div>
       </div>
     </section>

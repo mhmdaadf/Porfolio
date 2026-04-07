@@ -1,99 +1,54 @@
-/* Skills Section */
 .skills {
-  width: 100%;
-  padding: 4rem;
-  background-color: #D7D7D7;
+  background: transparent;
 }
 
-.skills-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.skills-title {
+  font-size: clamp(1.65rem, 3.8vw, 2.45rem);
+  max-width: 780px;
+  margin-bottom: 1.8rem;
 }
 
-.skills-btn {
-  display: inline-block;
-  border: 2px solid #000;
-  padding: 0.8rem 2rem;
-  font-size: 0.9rem;
-  letter-spacing: 3px;
-  font-weight: 600;
-  margin-bottom: 3rem;
+.skills-groups {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
 }
 
 .skills-category {
-  width: 100%;
-  margin-bottom: 3rem;
+  border: 1px solid var(--stroke);
+  border-radius: 16px;
+  background: #ffffff;
+  padding: 1.2rem;
 }
 
 .skills-category h3 {
-  font-size: 0.9rem;
-  font-weight: 700;
-  letter-spacing: 2px;
-  margin-bottom: 1.5rem;
-  text-transform: uppercase;
+  font-size: 1rem;
+  margin-bottom: 0.9rem;
 }
 
 .skills-grid {
   display: flex;
   flex-wrap: wrap;
-  gap: 2rem;
-  justify-content: center;
+  gap: 0.55rem;
 }
 
-.skill-item {
-  display: flex;
-  flex-direction: column;
+.skill-badge {
+  display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  min-width: 80px;
+  border: 1px solid var(--stroke);
+  border-radius: 999px;
+  padding: 0.34rem 0.72rem;
+  font-size: 0.82rem;
+  background: #f8fafc;
+  transition: border-color 0.2s ease;
 }
 
-.skill-icon {
-  width: 60px;
-  height: 60px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.skill-badge:hover {
+  border-color: var(--accent);
 }
 
-.skill-icon img {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
-}
-
-.skill-icon svg {
-  width: 50px;
-  height: 50px;
-}
-
-.skill-item span {
-  font-size: 0.75rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  color: #333;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .skills {
-    padding: 3rem 2rem;
-  }
-  
-  .skills-grid {
-    gap: 1.5rem;
-  }
-  
-  .skill-item {
-    min-width: 70px;
-  }
-  
-  .skill-icon {
-    width: 50px;
-    height: 50px;
+@media (max-width: 1000px) {
+  .skills-groups {
+    grid-template-columns: 1fr;
   }
 }

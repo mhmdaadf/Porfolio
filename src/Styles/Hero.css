@@ -1,256 +1,108 @@
-/* Hero Section */
 .hero {
-  min-height: 100vh;
+  padding-top: 7.5rem;
+  padding-bottom: 4.25rem;
+}
+
+.hero-layout {
+  display: grid;
+  grid-template-columns: 1.08fr 0.92fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+.hero-content h1 {
+  font-size: clamp(2rem, 4.8vw, 3.5rem);
+  line-height: 1.1;
+  margin-bottom: 1rem;
+  max-width: 740px;
+}
+
+.hero-subtitle {
+  color: var(--muted);
+  max-width: 640px;
+  margin-bottom: 1.7rem;
+}
+
+.hero-cta {
   display: flex;
-  position: relative;
-  overflow: hidden;
-  padding-top: 80px;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 1.3rem;
 }
 
-/* Animated Blob */
-.blob {
-  position: absolute;
-  bottom: 50px;
-  left: 20px;
-  width: 500px;
-  height: 500px;
-  background: #000;
-  opacity: 0.08;
-  border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-  z-index: 0;
-  pointer-events: none;
-  animation: blob-morph 8s ease-in-out infinite;
-}
-
-@keyframes blob-morph {
-  0%, 100% {
-    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-  }
-  50% {
-    border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
-  }
-}
-
-.hero-content {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 4rem;
-  width: 50%;
-  z-index: 2;
-}
-
-.hero-greeting {
-  font-size: 1.2rem;
-  color: #333;
-  margin-bottom: 0.5rem;
-}
-
-.hero-name {
-  font-size: 3rem;
-  font-weight: bold;
-  color: #000;
-  margin-bottom: 0.5rem;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-.hero-title {
-  font-size: 1rem;
-  color: #666;
-  margin-bottom: 2rem;
-}
-
-.hero-buttons {
-  display: flex;
-  gap: 1rem;
-}
-
-.hero-btn {
-  width: 45px;
-  height: 45px;
-  border: none;
-  background-color: #eee;
-  cursor: pointer;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
+.hero-social {
   display: flex;
   align-items: center;
-  justify-content: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  gap: 0.7rem;
 }
 
-.hero-btn:hover {
+.hero-social a {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  border: 1px solid var(--stroke);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.25s ease, border-color 0.25s ease;
+  background: #ffffff;
+}
+
+.hero-social a:hover {
   transform: translateY(-3px);
-  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+  border-color: var(--accent);
 }
 
-.hero-btn img,
-.hero-btn svg {
-  height: 24px;
-  width: 24px;
+.hero-social img,
+.hero-social svg {
+  width: 20px;
+  height: 20px;
 }
 
-/* Hero Image Side */
-.hero-image-container {
-  position: absolute;
-  right: 0;
-  top: 0;
-  width: 55%;
-  height: 100%;
-  background-color: #000000;
-  clip-path: polygon(20% 0, 100% 0, 100% 100%, 0% 100%);
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-}
-
-.hero-image-container::before {
-  content: 'CS';
-  position: absolute;
-  right: 5px;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 20rem;
-  font-weight: bold;
-  color: rgba(255, 255, 255, 0.05);
-  z-index: 0;
+.hero-profile {
+  position: relative;
 }
 
 .portfolio-img {
-  width: 80%;
-  max-width: 500px;
-  z-index: 1;
-  object-fit: contain;
+  width: min(440px, 100%);
+  margin-inline: auto;
+  border-radius: 22px;
+  border: 1px solid var(--stroke);
+  background: linear-gradient(155deg, #e2e8f0 0%, #f8fafc 65%);
 }
 
-/* Hire Me Section */
-.hire-me {
-  background-color: #1a1a1a;
-  color: #fff;
-  padding: 4rem;
-  position: relative;
+.hero-metric {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1rem;
+  margin: auto;
+  width: min(320px, 88%);
+  background: #ffffff;
+  border: 1px solid var(--stroke);
+  border-radius: 14px;
+  box-shadow: 0 18px 35px rgba(15, 23, 42, 0.08);
+  padding: 0.9rem 1rem;
+  text-align: center;
 }
 
-.hire-me-title {
-  font-size: 1.5rem;
-  font-weight: bold;
-  letter-spacing: 2px;
-  margin-bottom: 1.5rem;
+.hero-metric p {
+  color: var(--muted);
+  font-size: 0.84rem;
 }
 
-.hire-me-text {
-  font-size: 0.9rem;
-  line-height: 1.8;
-  color: #aaa;
-  max-width: 800px;
-  margin-bottom: 2rem;
+.hero-metric strong {
+  display: block;
+  margin-top: 0.2rem;
+  font-size: 0.98rem;
 }
 
-.hire-btn {
-  display: inline-block;
-  border: 2px solid #fff;
-  color: #fff;
-  padding: 0.8rem 2rem;
-  font-size: 0.9rem;
-  letter-spacing: 3px;
-  font-weight: 600;
-}
+@media (max-width: 940px) {
+  .hero-layout {
+    grid-template-columns: 1fr;
+  }
 
-/* Responsive */
-@media (max-width: 992px) {
-  .hero {
-    flex-direction: column;
-    padding-top: 60px;
-    min-height: 100vh;
-    background-color: #000;
-  }
-  
-  .hero-content {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    padding: 2rem;
-    text-align: left;
-    align-items: flex-start;
-    z-index: 10;
-    background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.7) 50%, transparent 100%);
-  }
-  
-  .hero-greeting {
-    color: #fff;
-  }
-  
-  .hero-name {
-    font-size: 2rem;
-    color: #fff;
-  }
-  
-  .hero-title {
-    color: rgba(255,255,255,0.7);
-  }
-  
-  .hero-image-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    clip-path: none;
-    z-index: 1;
-  }
-  
-  .hero-image-container::before {
-    font-size: 10rem;
-    right: 10px;
-    bottom: 20%;
-    top: auto;
-    transform: none;
-  }
-  
-  .portfolio-img {
-    width: 100%;
-    max-width: none;
-    height: 100%;
-    object-fit: cover;
-    object-position: top center;
-  }
-  
-  .hero-buttons {
-    position: absolute;
-    right: 1.5rem;
-    bottom: 8rem;
-    flex-direction: column;
-    gap: 0.8rem;
-    z-index: 11;
-  }
-  
-  .hero-btn {
-    background-color: transparent;
-    border: 1px solid rgba(255,255,255,0.5);
-    box-shadow: none;
-  }
-  
-  .hero-btn img,
-  .hero-btn svg {
-    filter: invert(1);
-  }
-}
-
-@media (max-width: 576px) {
-  .hero-content {
-    padding: 1.5rem;
-  }
-  
-  .hero-name {
-    font-size: 1.8rem;
-  }
-  
-  .hero-buttons {
-    right: 1rem;
-    bottom: 6rem;
-  }
-  
-  .hire-me {
-    padding: 2rem;
+  .hero-profile {
+    margin-top: 1rem;
   }
 }

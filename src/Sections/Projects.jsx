@@ -1,42 +1,21 @@
 import React from 'react';
 import '../Styles/Projects.css';
+import SectionTag from '../Components/SectionTag.jsx';
+import ProjectCard from '../Components/ProjectCard.jsx';
+import projects from '../data/projects.js';
 
 function Projects() {
-  const projects = [
-    {
-      id: 1,
-      title: 'Online Bookstore',
-      image: '',
-    },
-    {
-      id: 2,
-      title: 'Portfolio',
-      image: '',
-    },
-    {
-      id: 3,
-      title: 'Dashboard',
-      image: '',
-    }
-  ];
-
   return (
-    <section className='projects' id='projects'>
-      <div className='projects-container'>
-        <div className='projects-header'>
-          <div className='project-btn'>PROJECTS</div>
-        </div>
+    <section className='projects section-shell' id='projects'>
+      <div className='section-container projects-container'>
+        <SectionTag label='PROJECTS' />
+        <h2 className='projects-title'>Selected systems I engineered for reliability, speed, and growth.</h2>
+
         <div className='projects-grid'>
-          {projects.map(project => (
-            <div key={project.id} className='project-card'>
-              <img src={project.image} alt={project.title} />
-              <div className='project-overlay'>
-                <h4>{project.title}</h4>
-              </div>
-            </div>
+          {projects.map((project) => (
+            <ProjectCard key={project.title} project={project} />
           ))}
         </div>
-        <p className='more-coming'>And many more to come!</p>
       </div>
     </section>
   );

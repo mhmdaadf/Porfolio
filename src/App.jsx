@@ -8,6 +8,7 @@ import Contact from './Sections/Contact.jsx'
 import Hero from './Sections/Hero.jsx'
 import Projects from './Sections/Projects.jsx'
 import Skills from './Sections/Skills.jsx'
+import WhyMe from './Sections/WhyMe.jsx'
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
       <About />
       <Skills />
       <Projects />
+      <WhyMe />
       <Contact />
       <Footer />
     </>

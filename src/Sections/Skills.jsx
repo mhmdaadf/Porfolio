@@ -1,83 +1,28 @@
 import React from 'react';
 import '../Styles/Skills.css';
-import htmlIcon from '../assets/html.png';
-import cssIcon from '../assets/css.png';
-import jsIcon from '../assets/js.png';
-import reactIcon from '../assets/react.png';
-import gitIcon from '../assets/git.png';
-import figmaIcon from '../assets/figma.png';
-import nodeIcon from '../assets/node.png';
-import tsIcon from '../assets/ts.png';
-import sqlIcon from '../assets/sql.png';
+import SectionTag from '../Components/SectionTag.jsx';
+import skillGroups from '../data/skills.js';
 
 function Skills() {
   return (
-    <section className='skills' id='skills'>
-      <div className='skills-container'>
-        <div className='skills-btn'>SKILLS</div>
-        <div className='skills-category'>
-          <h3>Using Now:</h3>
-          <div className='skills-grid'>
-            <div className='skill-item'>
-              <div className='skill-icon'>
-               <img src={htmlIcon} alt="" />
+    <section className='skills section-shell' id='skills'>
+      <div className='section-container'>
+        <SectionTag label='SKILLS' />
+        <h2 className='skills-title'>Tools and technologies I use to deliver production backend systems.</h2>
+
+        <div className='skills-groups'>
+          {skillGroups.map((group) => (
+            <article key={group.title} className='skills-category'>
+              <h3>{group.title}</h3>
+              <div className='skills-grid'>
+                {group.items.map((skill) => (
+                  <span key={skill} className='skill-badge'>
+                    {skill}
+                  </span>
+                ))}
               </div>
-              <span>HTML</span>
-            </div>
-            <div className='skill-item'>
-              <div className='skill-icon'>
-                <img src={cssIcon} alt="" />
-              </div>
-              <span>CSS</span>
-            </div>
-            <div className='skill-item'>
-              <div className='skill-icon'>
-                <img src={jsIcon} alt="" />
-              </div>
-              <span>JavaScript</span>
-            </div>
-            <div className='skill-item'>
-              <div className='skill-icon'>
-                <img src={reactIcon} alt="" />
-              </div>
-              <span>React</span>
-            </div>
-            <div className='skill-item'>
-              <div className='skill-icon'>
-                <img src={gitIcon} alt="" />
-              </div>
-              <span>Git</span>
-            </div>
-            <div className='skill-item'>
-              <div className='skill-icon'>
-                <img src={figmaIcon} alt="" />
-              </div>
-              <span>Figma</span>
-            </div>
-          </div>
-        </div>
-        <div className='skills-category'>
-          <h3>Learning:</h3>
-          <div className='skills-grid'>
-            <div className='skill-item'>
-              <div className='skill-icon'>
-                <img src={nodeIcon} alt="" />
-              </div>
-              <span>Node.js</span>
-            </div>
-            <div className='skill-item'>
-              <div className='skill-icon'>
-                <img src={tsIcon} alt="" />
-              </div>
-              <span>TypeScript</span>
-            </div>
-            <div className='skill-item'>
-              <div className='skill-icon'>
-                <img src={sqlIcon} alt="" />
-              </div>
-              <span>MYSQL</span>
-            </div>
-          </div>
+            </article>
+          ))}
         </div>
       </div>
     </section>
