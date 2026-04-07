@@ -25,6 +25,17 @@
   align-items: center;
   gap: 0.45rem;
   cursor: pointer;
+  transition:
+    transform var(--motion-base) var(--ease-emphasized),
+    border-color var(--motion-base) var(--ease-standard),
+    box-shadow var(--motion-base) var(--ease-standard);
+  will-change: transform;
+}
+
+.back-to-top:hover {
+  transform: translateY(-1px) scale(1.02);
+  border-color: #5eead4;
+  box-shadow: 0 9px 16px rgba(2, 8, 23, 0.3);
 }
 
 .top-arrow {
@@ -50,17 +61,27 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  transition: transform 0.25s ease, border-color 0.25s ease;
+  transition:
+    transform var(--motion-base) var(--ease-emphasized),
+    border-color var(--motion-base) var(--ease-standard),
+    box-shadow var(--motion-base) var(--ease-standard);
+  will-change: transform;
 }
 
 .social-link:hover {
-  transform: translateY(-3px);
+  transform: translateY(-2px) scale(1.02);
   border-color: #5eead4;
+  box-shadow: 0 10px 18px rgba(2, 8, 23, 0.26);
 }
 
 .social-link svg {
   width: 18px;
   height: 18px;
+  transition: transform var(--motion-base) var(--ease-emphasized);
+}
+
+.social-link:hover svg {
+  transform: scale(1.03);
 }
 
 .copyright {

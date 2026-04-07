@@ -25,14 +25,36 @@
 }
 
 .contact-links a {
+  position: relative;
+  overflow: hidden;
   border: 1px solid var(--stroke);
   border-radius: 12px;
   padding: 0.84rem;
   background: #f8fafc;
-  transition: border-color 0.25s ease, transform 0.25s ease;
+  transition:
+    border-color var(--motion-base) var(--ease-standard),
+    transform var(--motion-base) var(--ease-emphasized);
+  will-change: transform;
+}
+
+.contact-links a::after {
+  content: '';
+  position: absolute;
+  left: 0.84rem;
+  right: 0.84rem;
+  bottom: 0.55rem;
+  height: 1px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--motion-base) var(--ease-emphasized);
 }
 
 .contact-links a:hover {
   border-color: var(--accent);
-  transform: translateY(-2px);
+  transform: translateY(-1px) scale(1.01);
+}
+
+.contact-links a:hover::after {
+  transform: scaleX(1);
 }

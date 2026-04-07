@@ -1,8 +1,9 @@
 import '../Styles/Navbar.css';
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   const navItems = [
     { label: 'About', href: '#about' },
@@ -19,9 +20,20 @@ function Navbar() {
     setMenuOpen(false);
   };
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 16);
+    };
+
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <>
-      <nav className="site-nav">
+      <nav className={`site-nav ${isScrolled ? 'is-scrolled' : ''}`}>
         <a href="#home" className="nav-brand" onClick={() => setMenuOpen(false)}>
           Mohammad Alkhatib
         </a>
